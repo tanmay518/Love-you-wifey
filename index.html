@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff4e8a,#ff8fb1);
+color:white;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.typing{
+font-size:1.3rem;
+border-right:3px solid white;
+display:inline-block;
+white-space:nowrap;
+overflow:hidden;
+animation:blink .8s infinite;
+}
+
+@keyframes blink{
+50%{border-color:transparent;}
+}
+
+.section{
+max-width:900px;
+margin:auto;
+padding:60px 20px;
+}
+
+.card{
+background:rgba(255,255,255,.15);
+padding:25px;
+margin:20px 0;
+border-radius:20px;
+backdrop-filter:blur(8px);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:16px;
+margin-top:15px;
+}
+
+#letter{
+display:none;
+margin-top:20px;
+}
+
+.heart{
+position:fixed;
+bottom:-20px;
+animation:float linear infinite;
+opacity:.7;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+<div>
+<h1>❤️ For My Favorite Person ❤️</h1>
+<div class="typing" id="typing"></div>
+</div>
+</div>
+
+<div class="section">
+
+<div class="card">
+<h2>🌹 Our Story</h2>
+<p>
+Har story ki ek beginning hoti hai,
+aur meri favorite story us din shuru hui
+jab tum meri life mein aayi.
+Tab se meri har smile mein tumhara thoda sa hissa hai. ❤️
+</p>
+</div>
+
+<div class="card">
+<h2>💌 A Little Memory From Today</h2>
+<p>
+Aaj jab tumne meri cap utari aur main thoda gussa ho gaya,
+baad mein realise hua ki mujhe itna react nahi karna chahiye tha.
+Sach ye hai ki tumhare saath har moment special hai,
+chahe hasi ho ya nok-jhok. ❤️
+</p>
+</div>
+
+<div class="card">
+<h2>⏳ Time Since We Met</h2>
+<p id="counter"></p>
+</div>
+
+<div class="card">
+<h2>📸 Our Gallery</h2>
+<div class="gallery">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+</div>
+<p style="margin-top:10px">
+(Photo1.jpg, Photo2.jpg, Photo3.jpg ko apni photos se replace kar dena)
+</p>
+</div>
+
+<div class="card">
+<h2>💖 Hidden Love Letter</h2>
+<button onclick="showLetter()">Open ❤️</button>
+
+<div id="letter">
+<p>
+Dear Love,
+
+Thank you for every smile,
+every conversation,
+every memory and every moment.
+
+Out of all the people in the world,
+my heart chose you.
+
+And if I had to choose again,
+I would still choose you. ❤️
+
+Forever Yours,
+Tanmay 🌹
+</p>
+</div>
+</div>
+
+</div>
+
+<script>
+
+const text="You make ordinary days feel extraordinary ❤️";
+let i=0;
+
+function typeWriter(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typeWriter,70);
+}
+}
+typeWriter();
+
+function showLetter(){
+document.getElementById("letter").style.display="block";
+}
+
+const meetDate=new Date("2025-01-01");
+const today=new Date();
+
+const diff=Math.floor(
+(today-meetDate)/(1000*60*60*24)
+);
+
+document.getElementById("counter").innerHTML=
+diff+" days of beautiful memories ❤️";
+
+for(let i=0;i<40;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+heart.style.animationDuration=(5+Math.random()*6)+"s";
+document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
